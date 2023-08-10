@@ -1,0 +1,5 @@
+# Cache
+/cachedir/
+
+# Config
+/.vscode/
