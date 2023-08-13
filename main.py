@@ -3,7 +3,7 @@ from piano import *
 
 # BPM 123 4/4
 
-score = Score("Drum Machine Pattern #1", 145.0)
+score = Score("Drum Machine Pattern #1", 123.0)
 
 drumsPart = Part("Drums", 0, 9)
 
