@@ -78,18 +78,18 @@ def getDrumPart():
   bassPitches += [REST] * 16
   bassDurations += [WN] * 16
 
-  # Break 8 4
-  stickPitches   += [LMT] * 64
-  stickDurations += [EN] * 64
+  # Break 4 4
+  stickPitches   += [LMT] * 32
+  stickDurations += [EN] * 32
   
-  snarePitches += [REST, SNR, REST, SNR, SNR, REST, SNR, REST, SNR, SNR, SNR] * 4
-  snareDurations += [QN, QN, QN, EN, EN, QN, QN, EN, EN, EN, EN] * 4
+  snarePitches += [REST, SNR, REST, SNR, SNR, REST, SNR, REST, SNR, SNR, SNR] * 2
+  snareDurations += [QN, QN, QN, EN, EN, QN, QN, EN, EN, EN, EN] * 2
 
-  cymbalPitches += ([CC1] + [REST] * 3 + [REST] * 3) * 2
-  cymbalDurations += ([QN] + [WN] * 3 + [QN] * 3) * 2
+  cymbalPitches += ([CC1] + [REST] * 3 + [REST] * 3) * 1
+  cymbalDurations += ([QN] + [WN] * 3 + [QN] * 3) * 1
 
-  bassPitches += [BDR] * 32
-  bassDurations += [QN] * 32
+  bassPitches += [BDR] * 16
+  bassDurations += [QN] * 16
 
   # Chorus 16 4
   stickPitches   += [LMT] * 128
