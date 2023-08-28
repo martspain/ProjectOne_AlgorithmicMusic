@@ -114,8 +114,9 @@ def getDrumPart():
   bassDrumPhrase.addNoteList(bassP11, bassD1)
   bassDrumPhrase.addNoteList(bassP15, bassD1)
   bassDrumPhrase.addNoteList(bassP7, bassD1)
-
-   # Break 4 4
+  #12, 13, 14, 15, 16
+  
+  # Break 4 4
 
   bassDrumPhrase.addNoteList(bassPitches, bassDurations)
   drumsPart.addPhrase(bassDrumPhrase)
