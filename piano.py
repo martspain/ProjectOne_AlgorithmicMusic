@@ -1,71 +1,31 @@
+# furElise.py
+# Generates the theme from Beethoven's Fur Elise.
+ 
 from music import *
+ 
+# theme has some repetition, so break it up to maximize economy
+# (also notice how we line up corresponding pitches and durations)
+#pitches1   = [D5, B4, F4, D5, E5]
+#durations1 = [QN, QN, QN, EN, EN]
+#pitches2   = [E5, C5, G4, E5, D5, C5]
+#durations2 = [EN, QN, QN, EN, EN, EN]
+#pitches3   = [D5, B4, G4, D5, E5]
+#durations3 = [QN, QN, QN, EN, EN]
+#pitches4   = [E5, B4, G4, E5, D5, C5]
+#durations4 = [EN, QN, QN, EN, EN, EN]
 
-# Funcion para exportar la parte (instrumento) que nos toca
-def getDrumPart():
+pitches0   = [D5, B4, F4, D5, E5, E5, C5, G4, E5, D5, C5, D5, B4, G4, D5, E5, E5, B4, G4, E5, D5, C5]
+durations0 = [QN, QN, QN, EN, EN, EN, QN, QN, EN, EN, EN] * 2
 
-  # TODO This is only for testing instrument individually. Delete after finishing part.
-  score = Score("Drum Machine Pattern #1", 145.0)
+pitches1 = pitches0 * 3
+durations1 = durations0 * 3
 
-  drumsPart = Part("Piano", 0, 1)
-  bassDrumPhrase = Phrase(0.0) # Create phrase at beat 0.0
+# create an empty phrase, and construct theme from the above motifs
+theme = Phrase()   
 
-  bassDrumPhrase.setInstrument(OVERDRIVEN_GUITAR)
-  bassDrumPhrase.setTempo(123)
+theme.addNoteList(pitches1, durations1)
 
-  # Intro 20 4
-  bassPitches   = [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST]
-  bassDurations = [QN, EN, EN, HN, QN, EN, EN, EN, DHN] # 20 WN
+theme.setTempo(123)
 
-  # Verse1 16 4
-  bassPitches   += [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST] * 2
-  bassDurations += [QN, EN, EN, HN, QN, EN, EN, EN, DHN] * 2 # 16 wn
-
-  # Coro 16 4
-  bassPitches   += [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST] * 2
-  bassDurations += [QN, EN, EN, HN, QN, EN, EN, EN, DHN] * 2
-
-  # Bridge PT1 8 4
-  bassPitches   += [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST] * 2
-  bassDurations += [QN, EN, EN, HN, QN, EN, EN, EN, DHN] * 2
-
-  # Bridge PT2 16 4
-  bassPitches   += [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST] * 2
-  bassDurations += [QN, EN, EN, HN, QN, EN, EN, EN, DHN] * 2
-
-  # Break 8 4
-  bassPitches   += [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST] * 2
-  bassDurations += [QN, EN, EN, HN, QN, EN, EN, EN, DHN] * 2
-
-  # Chorus 16 4
-  bassPitches   += [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST] * 2
-  bassDurations += [QN, EN, EN, HN, QN, EN, EN, EN, DHN] * 2
-
-  # Bridge PT1 8 4
-  bassPitches   += [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST] * 2
-  bassDurations += [QN, EN, EN, HN, QN, EN, EN, EN, DHN] * 2
-
-  # Bridge PT2 16 4
-  bassPitches   += [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST] * 2
-  bassDurations += [QN, EN, EN, HN, QN, EN, EN, EN, DHN] * 2
-
-  # Chorus 16 4
-  bassPitches   += [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST] * 2
-  bassDurations += [QN, EN, EN, HN, QN, EN, EN, EN, DHN] * 2
-
-  # Final Chorus 9 4
-  bassPitches   += [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST] * 2
-  bassDurations += [QN, EN, EN, HN, QN, EN, EN, EN, DHN] * 2
-
-  # Silence 2 4
-  bassPitches   += [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST] * 2
-  bassDurations += [QN, EN, EN, HN, QN, EN, EN, EN, DHN] * 2
-  
-
-  bassDrumPhrase.addNoteList(bassPitches, bassDurations)
-  drumsPart.addPhrase(bassDrumPhrase)
-
-  # TODO This is only for testing instrument individually. Delete after finishing part.
-  score.addPart(drumsPart)
-  Play.midi(score)
-
-  return drumsPart
+# play it
+Play.midi(theme)
