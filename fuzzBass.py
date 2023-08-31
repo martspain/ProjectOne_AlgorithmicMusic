@@ -1,15 +1,15 @@
 from music import *
 
 # Funcion para exportar la parte (instrumento) que nos toca
-def getDrumPart():
+def getBassPart():
 
   # TODO This is only for testing instrument individually. Delete after finishing part.
-  score = Score("Drum Machine Pattern #1", 145.0)
+  # score = Score("Drum Machine Pattern #1", 145.0)
 
-  drumsPart = Part("Bass", 0, 3)
+  bassPart = Part("Bass", 0, 3)
   bassDrumPhrase = Phrase(0.0) # Create phrase at beat 0.0
   
-  bassDrumPhrase.setInstrument(OVERDRIVEN_GUITAR)
+  bassDrumPhrase.setInstrument(BASS)
   bassDrumPhrase.setTempo(123)
 
   # Intro 20 4
@@ -119,10 +119,10 @@ def getDrumPart():
   # Break 4 4
 
   bassDrumPhrase.addNoteList(bassPitches, bassDurations)
-  drumsPart.addPhrase(bassDrumPhrase)
+  bassPart.addPhrase(bassDrumPhrase)
 
   # TODO This is only for testing instrument individually. Delete after finishing part.
-  score.addPart(drumsPart)
-  Play.midi(score)
+  # score.addPart(bassPart)
+  # Play.midi(score)
 
-  return drumsPart
+  return bassPart

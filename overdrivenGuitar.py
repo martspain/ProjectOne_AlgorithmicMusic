@@ -1,12 +1,12 @@
 from music import *
 
 # Funcion para exportar la parte (instrumento) que nos toca
-def getDrumPart():
+def getOverdrivenGuitarPart():
 
   # TODO This is only for testing instrument individually. Delete after finishing part.
-  score = Score("Drum Machine Pattern #1", 145.0)
+  # score = Score("Drum Machine Pattern #1", 145.0)
 
-  drumsPart = Part("OverdrivenGuitar", 0, 2)
+  overDrivePart = Part("OverdrivenGuitar", 0, 2)
   OverGuitarPhrase1 = Phrase(0.0) # Create phrase at beat 0.0
   OverGuitarPhrase2 = Phrase(0.0) 
   OverGuitarPhrase3 = Phrase(0.0) 
@@ -173,13 +173,13 @@ def getDrumPart():
   #OverGuitarPhrase1.addNoteList(bassPitches, bassDurations)
   #OverGuitarPhrase2.addNoteList(bassPitches, bassDurations)
   #OverGuitarPhrase3.addNoteList(bassPitches, bassDurations)
-  drumsPart.addPhrase(OverGuitarPhrase1)
-  drumsPart.addPhrase(OverGuitarPhrase2)
-  drumsPart.addPhrase(OverGuitarPhrase3)
+  overDrivePart.addPhrase(OverGuitarPhrase1)
+  overDrivePart.addPhrase(OverGuitarPhrase2)
+  overDrivePart.addPhrase(OverGuitarPhrase3)
 
   # TODO This is only for testing instrument individually. Delete after finishing part.
-  score.addPart(drumsPart)
-  Play.midi(score)
+  # score.addPart(overDrivePart)
+  # Play.midi(score)
   #View.sketch(score)
   
-  return drumsPart
+  return overDrivePart
