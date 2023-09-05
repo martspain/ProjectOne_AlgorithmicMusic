@@ -1,8 +1,7 @@
 from music import *
 
-# Funcion para exportar la parte (instrumento) que nos toca
-def getDrumPart():
-
+def getDrumsPart():
+    
   # TODO This is only for testing instrument individually. Delete after finishing part.
   # score = Score("Drum Machine Pattern #1", 123.0)
   # -------------------------------------------------------------------------------- #
@@ -16,7 +15,7 @@ def getDrumPart():
   # Intro 12 4
   stickPitches   = [LMT] * 96
   stickDurations = [EN] * 96 # 12 WN
-  
+
   snarePitches = [REST, SNR, REST, SNR, SNR, REST, SNR, REST, SNR, SNR, SNR] * 6
   snareDurations = [QN, QN, QN, EN, EN, QN, QN, EN, EN, EN, EN] * 6
 
@@ -29,7 +28,7 @@ def getDrumPart():
   # Verse1 16 4
   stickPitches   += [LMT] * 128
   stickDurations += [EN] * 128 # 16 wn
-  
+
   snarePitches += [REST, SNR, REST, SNR, SNR, REST, SNR, REST, SNR, SNR, REST, SNR, REST, SNR, SNR, REST, SNR, REST, SNR, SNR, SNR] * 4
   snareDurations += [QN, QN, QN, EN, EN, QN, QN, QN, EN, EN, QN, QN, QN, EN, EN, QN, QN, EN, EN, EN, EN] * 4
 
@@ -55,7 +54,7 @@ def getDrumPart():
   # Bridge PT1 8 4
   stickPitches   += [CHH, SNR] + [CC1, CHH, CHH, CHH] * 7 + [CHH, SNR, CC1]
   stickDurations += [EN, EN] + [QN, QN, QN, QN] * 7 + [QN, QN, QN]
-  
+
   snarePitches += [SNR, SNR] + [SNR] * 31
   snareDurations += [EN, EN] + [QN] * 31
 
@@ -74,14 +73,14 @@ def getDrumPart():
 
   cymbalPitches += [REST] * 16
   cymbalDurations += [WN] * 16
-  
+
   bassPitches += [REST] * 16
   bassDurations += [WN] * 16
 
   # Break 4 4
   stickPitches   += [LMT] * 32
   stickDurations += [EN] * 32
-  
+
   snarePitches += [REST, SNR, REST, SNR, SNR, REST, SNR, REST, SNR, SNR, SNR] * 2
   snareDurations += [QN, QN, QN, EN, EN, QN, QN, EN, EN, EN, EN] * 2
 
@@ -107,7 +106,7 @@ def getDrumPart():
   # Bridge PT1 8 4
   stickPitches   += [CHH, SNR] + [CC1, CHH, CHH, CHH] * 7 + [CHH, SNR, CC1]
   stickDurations += [EN, EN] + [QN, QN, QN, QN] * 7 + [QN, QN, QN]
-  
+
   snarePitches += [SNR, SNR] + [SNR] * 31
   snareDurations += [EN, EN] + [QN] * 31
 
@@ -120,7 +119,7 @@ def getDrumPart():
   # Bridge PT2 16 4
   stickPitches   += [CHH, SNR] + [CC1, CHH, CHH, CHH] * 6 + [CHH, SNR, CC1] + [REST] + [REST] * 15 + [REST, CHH, CHH, CC1]
   stickDurations += [EN, EN] + [QN, QN, QN, QN] * 6 + [QN, QN, QN] + [WN] + [HN] * 15 + [EN, EN, EN, EN]
-  
+
   snarePitches += [SNR, SNR] + [SNR] * 27 + [SNR] * 16 + [CC2, REST, SNR] + [REST, SNR] * 7 + [REST, CC2] + [REST, SNR] * 6 + [REST, SNR, SNR, SNR]
   snareDurations += [EN, EN] + [QN] * 27 + [SN] * 16 + [EN, QN, EN] + [DQN, EN] * 7 + [DQN, EN] + [DQN, EN] * 6 + [EN, EN, EN, EN]
 
@@ -150,16 +149,16 @@ def getDrumPart():
   # # Silence 2 4
   # stickPitches   += [CLP, CLP, CLP, REST, REST, CLP, CLP, CLP, REST] * 2
   # stickDurations += [QN, EN, EN, HN, QN, EN, EN, EN, DHN] * 2
-  
+
 
   stickDrumPhrase.addNoteList(stickPitches, stickDurations)
   Mod.crescendo(stickDrumPhrase, 240, 272, 10, 100)
   drumsPart.addPhrase(stickDrumPhrase)
-  
+
   snareDrumPhrase.addNoteList(snarePitches, snareDurations)
   Mod.crescendo(snareDrumPhrase, 240, 272, 10, 100)
   drumsPart.addPhrase(snareDrumPhrase)
-  
+
   cymbalDrumPhrase.addNoteList(cymbalPitches, cymbalDurations)
   drumsPart.addPhrase(cymbalDrumPhrase)
 
@@ -170,6 +169,33 @@ def getDrumPart():
   # score.addPart(drumsPart)
   # Write.midi(score, "Drum.mid")
   # Play.midi(score)
-  # -------------------------------------------------------------------------------- #
 
-  return drumsPart
+####*# define the data structure
+score = Score("Deep Purple, Smoke On The Water", 170) # 110 bpm
+guitarPart = Part (PIANO, 0)
+guitarPart = Part (OVERDRIVEN_GUITAR, 0)
+
+guitarPhrase1 = Phrase(0.0) # guitar opening melody
+guitarPhrase2 - Phrase(32.0) # guitar opening melody an octave lowern
+
+##### create musical data
+# guitar opening melody (16QN = 4 measures)
+guitarPitches
+• [A3, CA, E4, A4] * 2 + [A3, CA, E4, B4]
+guitarDurations - [QN, QN, QN, QN] * 2 + [QN, QN, QN, QN] * 2 + [QN, QN, ON, QN]
+* 2 + [A3, CA, AA, E4] * 2 + [A3, CA, E4,
+guitarPhrasel. addNoteList (guitarPitches, guitarDurations)
+* [ON.
+eN,
+ON
+# create a power-chord sound by repeating the melody an octave lower
+guitarPhrase2.addNoteList(guitarPitches,
+Mod.transpose(guitarPhrase2, -12)
+guitarDurations)
+###** combine musical material guitarPart.addPhrase(guitarPhrase1)
+# guitarPart.addPhrase (guitarPhrase2)
+score. addPart (guitarPart)
+###*# play and write score to a MIDI file
+Play.midi (score)
+Write.midi (score,
+"DeepPurple.SmokeOnTheWater.mid")

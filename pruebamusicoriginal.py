@@ -1,6 +1,5 @@
 from music import *
 
-# Funcion para exportar la parte (instrumento) que nos toca
 def getDrumPart():
 
   # TODO This is only for testing instrument individually. Delete after finishing part.
@@ -173,3 +172,191 @@ def getDrumPart():
   # -------------------------------------------------------------------------------- #
 
   return drumsPart
+
+# Create a part to hold all the phrases
+part = Part()
+drumsPart = getDrumPart()
+
+# Define the piano pattern and set its instrument
+pianoPattern = [A3, C4, E4, A4] * 4
+pianoPhrase = Phrase()
+for note in pianoPattern:
+    pianoPhrase.addNote(Note(note, QUARTER_NOTE))
+pianoPhrase.setInstrument(PIANO)
+part.addPhrase(pianoPhrase)
+#
+## Bassline to accompany the chords and give a rock feel
+#basslinePattern = [
+#    A2, A2, E2, E2, D2, D2, A2, A2,
+#    A2, A2, E2, E2, D2, D2, A2, A2,
+#    A2, A2, E2, E2, D2, D2, A2, A2,
+#    G2, G2, D2, D2, C2, C2, G2, G2
+#]
+#
+#bassPhrase = Phrase()
+#for note in basslinePattern:
+#    bassPhrase.addNote(Note(note, QUARTER_NOTE))
+#bassPhrase.setInstrument(ELECTRIC_BASS)
+#part.addPhrase(bassPhrase)
+
+# Define the violin pattern and set its instrument
+violinPattern = [E4, F4, A4, G4] * 4
+violinPhrase = Phrase()
+for note in violinPattern:
+    violinPhrase.addNote(Note(note, QUARTER_NOTE))
+violinPhrase.setInstrument(VIOLIN)
+part.addPhrase(violinPhrase)
+
+# Electric guitar power chords with more rock rhythm
+A_MAJOR_CHORD = [A2, E3, A3]
+E_MAJOR_CHORD = [E2, B2, E3]
+D_MAJOR_CHORD = [D2, A2, D3]
+
+guitarPattern = [A_MAJOR_CHORD, A_MAJOR_CHORD, E_MAJOR_CHORD, E_MAJOR_CHORD, D_MAJOR_CHORD, D_MAJOR_CHORD, A_MAJOR_CHORD, A_MAJOR_CHORD]
+guitarPhrase = Phrase()
+for chordNotes in guitarPattern:
+    guitarPhrase.addChord(chordNotes, QUARTER_NOTE)
+guitarPhrase.setInstrument(OVERDRIVEN_GUITAR)  # Assuming there's an OVERDRIVEN_GUITAR constant
+part.addPhrase(guitarPhrase)
+
+
+# Piano pattern for Verse 1
+versePianoPattern = [A3, C4, D4, E4] * 4
+versePianoPhrase = Phrase()
+for note in versePianoPattern:
+    versePianoPhrase.addNote(Note(note, QUARTER_NOTE))
+versePianoPhrase.setInstrument(PIANO)
+part.addPhrase(versePianoPhrase)
+
+# Overdriven Guitar Riff for Verse 1
+overdriveGuitarPattern = [E4, G4, A4] * 4
+overdriveGuitarPhrase = Phrase()
+for note in overdriveGuitarPattern:
+    overdriveGuitarPhrase.addNote(Note(note, QUARTER_NOTE))
+overdriveGuitarPhrase.setInstrument(30)
+part.addPhrase(overdriveGuitarPhrase)
+
+# Bass pattern for Verse 1
+bassPattern = [E2, G2, A2] * 4
+bassPhrase = Phrase()
+for note in bassPattern:
+    bassPhrase.addNote(Note(note, QUARTER_NOTE))
+bassPhrase.setInstrument(BASS)
+part.addPhrase(bassPhrase)
+
+# Piano pattern for Bridge
+bridgePianoPattern = [G3, B3, D4, G4] * 2
+bridgePianoPhrase = Phrase()
+for note in bridgePianoPattern:
+    bridgePianoPhrase.addNote(Note(note, QUARTER_NOTE))
+bridgePianoPhrase.setInstrument(PIANO)
+part.addPhrase(bridgePianoPhrase)
+
+# Rock Organ pattern for the Bridge
+# Rock Organ pattern for the Bridge
+organPattern = [
+    G3, B3, D4, G4, 
+    D3, F3, A3, D4,  # Corregido a F3
+    C3, E3, G3, C4, 
+    G3, B3, D4, G4
+]
+
+organPhrase = Phrase()
+for note in organPattern:
+    organPhrase.addNote(Note(note, QUARTER_NOTE))
+organPhrase.setInstrument(ROCK_ORGAN)  # Asumiendo que hay una constante ROCK_ORGAN
+part.addPhrase(organPhrase)
+
+# Rock Organ to accompany the guitar solo
+organSoloBackground = [
+    A3, E3, D3, A3,
+    A3, E3, D3, A3,
+    G3, D3, C3, G3,
+    G3, D3, C3, G3
+]
+
+organSoloPhrase = Phrase()
+for chord in organSoloBackground:
+    organSoloPhrase.addChord([chord, chord + 4, chord + 7], WHOLE_NOTE)
+organSoloPhrase.setInstrument(ROCK_ORGAN)
+part.addPhrase(organSoloPhrase)
+
+
+# Clean Electric Guitar Power Chords for Bridge
+G_MAJOR_CHORD = [G3, D4, G4]
+D_MAJOR_CHORD = [D3, A3, D4]
+C_MAJOR_CHORD = [C3, G3, C4]
+bridgeGuitarPattern = [G_MAJOR_CHORD, D_MAJOR_CHORD, C_MAJOR_CHORD, G_MAJOR_CHORD]
+bridgeGuitarPhrase = Phrase()
+
+for chordNotes in bridgeGuitarPattern:
+    bridgeGuitarPhrase.addChord(chordNotes, HALF_NOTE)
+bridgeGuitarPhrase.setInstrument(GUITAR)
+part.addPhrase(bridgeGuitarPhrase)
+
+
+# Solo de guitarra basado en la escala pentatónica menor de A
+
+soloPattern = [
+    A4, A4, C5, D5, E5, D5, C5,
+    A4, G4, E4, G4, A4, A4, E5, D5, 
+    C5, A4, C5, E5, D5, C5, A4,
+    E4, D4, A4, G4, A4, C5, A4, E5, G5, E5,
+    D5, E5, D5, C5, A4, D5, E5, D5, C5, A4,
+    A4, G4, E4, D4, E4, G4, A4, G5, A5, G5, E5,
+    D5, C5, A4, G4, A4
+]
+
+
+rhythmPattern = [
+    QUARTER_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE,
+    QUARTER_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, QUARTER_NOTE, EIGHTH_NOTE, EIGHTH_NOTE,
+    QUARTER_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE,
+    QUARTER_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE,
+    QUARTER_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, QUARTER_NOTE,
+    EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE,
+    QUARTER_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, EIGHTH_NOTE, HALF_NOTE
+]
+
+# una octava hacia arriba y otra hacia abajo
+# desfaarlo medio bit
+
+soloPhrase = Phrase()
+for i, note in enumerate(soloPattern):
+    soloPhrase.addNote(Note(note, rhythmPattern[i]))
+soloPhrase.setInstrument(OVERDRIVEN_GUITAR)  # Asumiendo que tienes una constante para la guitarra con distorsión
+part.addPhrase(soloPhrase)
+
+
+# Solo de guitarra con sordina
+mutedGuitarSoloPattern = [
+    A4, C5, D5, C5, A4, G4, A4,
+    A4, D5, E5, D5, C5, A4, C5,
+    D5, E5, G5, E5, D5, C5, D5,
+    A4, G4, A4, E4, D4, E4, A4
+]
+
+rhythmPattern = [
+    SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE,
+    SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE,
+    SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE,
+    SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE, SIXTEENTH_NOTE
+]
+
+mutedGuitarPhrase = Phrase()
+for i, note in enumerate(mutedGuitarSoloPattern):
+    mutedGuitarPhrase.addNote(Note(note, rhythmPattern[i]))
+mutedGuitarPhrase.setInstrument(MUTED_GUITAR)  # Asumiendo que tienes una constante MUTED_GUITAR
+part.addPhrase(mutedGuitarPhrase)
+
+
+# Combine all parts into a score
+score = Score()
+score.addPart(part)
+score.addPart(drumsPart)
+score.setTempo(200)
+
+View.sketch(score)
+# Play the score
+Write.midi(score, "Original.mid")
+Play.midi(score)
